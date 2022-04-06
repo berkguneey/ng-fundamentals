@@ -1,0 +1,24 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      <strong>{{ event?.name }}</strong>
+    </h5>
+    <div class="card-text">
+      <div>Date: {{ event?.date }}</div>
+      <div [ngStyle]="applyTimeStyle()" [ngSwitch]="event?.time">
+        Time: {{ event?.time }}
+        <span *ngSwitchCase="'8:00 AM'">(Early Start)</span>
+        <span *ngSwitchCase="'10:00 AM'">(Late Start)</span>
+        <span *ngSwitchDefault>(Normal Start)</span>
+      </div>
+      <div>Price: ${{ event?.price }}</div>
+      <div *ngIf="event?.location">
+        <span>Location: {{ event?.location?.address }}</span>
+        <span class="ms-1"
+          >{{ event?.location?.city }}, {{ event?.location?.country }}</span
+        >
+      </div>
+      <div *ngIf="event?.onlineUrl">Online URL: {{ event?.onlineUrl }}</div>
+    </div>
+  </div>
+</div>
