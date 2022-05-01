@@ -15,10 +15,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" [routerLink]="['/events']">All Events</a>
+          <a
+            class="nav-link active"
+            [routerLink]="['/events']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >All Events</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/events/create']"
+          <a
+            class="nav-link"
+            [routerLink]="['/events/create']"
+            routerLinkActive="active"
             >Create Events</a
           >
         </li>

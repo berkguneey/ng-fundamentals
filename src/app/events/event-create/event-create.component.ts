@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./event-create.component.css'],
 })
 export class EventCreateComponent {
+  isDirty: boolean = true;
   constructor(private router: Router) {}
   cancel() {
     this.router.navigate(['/events']);
