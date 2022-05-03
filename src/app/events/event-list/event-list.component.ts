@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../shared/services/event.service';
 import { NotificationService } from '../../shared/services/notification.service';
+import { IEvent } from '../../shared/index';
 
 @Component({
   selector: 'event-list',
@@ -21,7 +22,7 @@ import { NotificationService } from '../../shared/services/notification.service'
   `,
 })
 export class EventListComponent implements OnInit {
-  events: any;
+  events?: IEvent[];
   constructor(
     private eventService: EventService,
     private notificationService: NotificationService,

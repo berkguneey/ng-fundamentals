@@ -1,26 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
+import { IEvent } from '../models/event.model';
 
 @Injectable()
 export class EventService {
-  getEvents() {
-    let subject = new Subject();
+  getEvents(): Observable<IEvent[]> {
+    let subject = new Subject<IEvent[]>();
     setTimeout(() => {
       subject.next(events);
       subject.complete();
     }, 500);
     return subject;
   }
-  getEvent(id: number) {
-    return events.find((event) => event.id === id);
+  getEvent(id: number): IEvent {
+    return events.find((event) => event.id === id) as IEvent;
+  }
+  saveEvent(event) {
+    event.id = 999;
+    event.session = [];
+    events.push(event);
   }
 }
 
-const events = [
+const events: IEvent[] = [
   {
     id: 1,
     name: 'Angular Events v1.0',
-    date: '10/06/2022',
+    date: new Date('10/06/2022'),
     time: '10:00 AM',
     price: 600.0,
     imageUrl: '/assets/images/ng-conf.png',
@@ -98,7 +104,7 @@ const events = [
   {
     id: 2,
     name: 'Angular Events v2.0',
-    date: '16/06/2022',
+    date: new Date('16/06/2022'),
     time: '9:00 AM',
     price: 950.0,
     imageUrl: '/assets/images/ng-conf.png',
@@ -154,7 +160,7 @@ const events = [
   {
     id: 3,
     name: 'Angular Events v3.0',
-    date: '22/06/2022',
+    date: new Date('22/06/2022'),
     time: '9:00 AM',
     price: 750.0,
     imageUrl: '/assets/images/ng-conf.png',
@@ -236,7 +242,7 @@ const events = [
   {
     id: 4,
     name: 'Angular Events v4.0',
-    date: '05/07/2022',
+    date: new Date('05/07/2022'),
     time: '8:00 AM',
     price: 800.0,
     imageUrl: '/assets/images/ng-conf.png',
@@ -285,7 +291,7 @@ const events = [
   {
     id: 5,
     name: 'Angular Events v5.0',
-    date: '12/07/2022',
+    date: new Date('12/07/2022'),
     time: '9:00 AM',
     price: 250.0,
     imageUrl: '/assets/images/ng-conf.png',

@@ -1,3 +1,10 @@
 .event-image {
   height: 100px;
 }
+
+em {
+  float: right;
+  color: #e05c65;
+  padding-left: 10px;
+  font-weight: bold;
+}
