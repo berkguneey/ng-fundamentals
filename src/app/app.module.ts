@@ -17,6 +17,8 @@ import {
   EventListResolver,
 } from './events/index';
 
+import { SessionCreateComponent, SessionListComponent } from './sessions/index';
+
 import {
   NavbarComponent,
   EventService,
@@ -40,6 +42,8 @@ import {
     NavbarComponent,
     EventDetailComponent,
     EventCreateComponent,
+    SessionCreateComponent,
+    SessionListComponent,
     Error404Component,
   ],
   providers: [
